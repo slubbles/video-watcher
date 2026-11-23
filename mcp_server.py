@@ -6,8 +6,8 @@ from motion_judge import analyze, write_report_md
 
 try:
     from mcp.server.fastmcp import FastMCP
-except ImportError:
-    raise SystemExit("pip install mcp")
+except ImportError:  # mcp 2.x renamed FastMCP -> MCPServer
+    from mcp.server.mcpserver import MCPServer as FastMCP
 
 mcp = FastMCP("video-watcher")
 
